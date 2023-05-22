@@ -2,11 +2,11 @@
 
 using Confluent.Kafka;
 using Configurations;
-using Kafka.Producers;
-using Providers.IdGenerator;
-using Providers.DateTimeProvider;
-using ChatApplication.Models;
 using System.Web;
+using Models.Messages;
+using Application.Kafka;
+using Application.Providers;
+using Application.Services.Messages;
 using Microsoft.Extensions.Options;
 
 public class MessageService : IMessageService

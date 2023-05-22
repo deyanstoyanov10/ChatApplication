@@ -1,8 +1,8 @@
 ﻿namespace ChatApplication.BackgroundServices;
 
-using Models;
-using Infrastructure.Kafka.Consumers;
-using Infrastructure.Services.Messages;
+using Application.Kafka;
+using Application.Handlers.Messages;
+using Models.Messages;
 
 public class ChatHostedService : IHostedService
 {
@@ -31,7 +31,7 @@ public class ChatHostedService : IHostedService
                 }
                 catch (Exception ex)
                 {
-
+                    // TODO: LOG
                 }
             }
         }, cancellationToken, TaskCreationOptions.LongRunning, TaskScheduler.Default);

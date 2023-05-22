@@ -1,17 +1,21 @@
-using ChatApplication.Data;
-using ChatApplication.Infrastructure.Configurations;
 using ChatApplication.Infrastructure.Kafka.Producers;
 using ChatApplication.Infrastructure.Kafka.Serializers;
-using ChatApplication.Infrastructure.Services.Providers.IdGenerator;
-using ChatApplication.Infrastructure.Services.Providers.DateTimeProvider;
 using Confluent.Kafka;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ChatApplication.Infrastructure.Services.Messages;
 using ChatApplication.Infrastructure.Kafka.Deserializers;
-using ChatApplication.Hub;
+using ChatApplication.Hubs;
 using ChatApplication.BackgroundServices;
 using ChatApplication.Infrastructure.Kafka.Consumers;
+using ChatApplication.Infrastructure.Data;
+using ChatApplication.Application.Handlers.Messages;
+using ChatApplication.Configurations;
+using ChatApplication.Application.Kafka;
+using ChatApplication.Application.Services.Messages;
+using ChatApplication.Application.Providers;
+using ChatApplication.Infrastructure.Providers.DateTimeProvider;
+using ChatApplication.Infrastructure.Providers.IdGenerator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,7 +75,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

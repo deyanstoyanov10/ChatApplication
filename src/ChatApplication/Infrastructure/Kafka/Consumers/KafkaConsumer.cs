@@ -1,8 +1,9 @@
 ﻿namespace ChatApplication.Infrastructure.Kafka.Consumers;
 
+using Application.Kafka;
+using Application.Providers;
 using Configurations;
 using Confluent.Kafka;
-using Services.Providers.IdGenerator;
 using Microsoft.Extensions.Options;
 
 public class KafkaConsumer<TKey, TContract> : IKafkaConsumer<TKey, TContract> where TContract : class

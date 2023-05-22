@@ -1,5 +1,6 @@
 ﻿namespace ChatApplication.Infrastructure.Kafka.Producers;
 
+using Application.Kafka;
 using Confluent.Kafka;
 using Microsoft.Extensions.Options;
 
